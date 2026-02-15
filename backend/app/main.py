@@ -30,6 +30,7 @@ app = FastAPI(
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=["https://multi-agent-invoice-reconciliation-system-7q6y-3kwysotlt.vercel.app"],
     allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
