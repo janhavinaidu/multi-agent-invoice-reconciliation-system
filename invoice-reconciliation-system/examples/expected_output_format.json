@@ -1,0 +1,118 @@
+{
+  "processing_metadata": {
+    "processing_id": "uuid",
+    "invoice_filename": "invoice_4.pdf",
+    "processing_started": "2026-01-29T12:30:45Z",
+    "processing_completed": "2026-01-29T12:31:20Z",
+    "processing_time_seconds": 35.4,
+    "status": "completed",
+    "overall_confidence": 0.82
+  },
+
+  "extraction": {
+    "invoice_number": "INV-004",
+    "supplier": {
+      "name": "PharmaChem Supplies Inc",
+      "address": "123 Chemical Way, Boston, MA"
+    },
+    "dates": {
+      "invoice_date": "2024-01-20",
+      "due_date": "2024-02-20"
+    },
+    "po_reference": "PO-12345",
+
+    "line_items": [
+      {
+        "description": "Acetylsalicylic Acid 99% Pure",
+        "quantity": 100,
+        "unit_price": 50.05,
+        "total_price": 5005
+      }
+    ],
+
+    "financial": {
+      "subtotal": 5005,
+      "tax": 500,
+      "total": 5505,
+      "currency": "USD"
+    },
+
+    "extraction_quality": {
+      "confidence_score": 0.91,
+      "ocr_quality": "good",
+      "warnings": []
+    }
+  },
+
+  "matching": {
+    "po_number": "PO-12345",
+    "match_type": "exact",
+    "match_confidence": 0.94,
+    "matched_items_count": 1,
+    "fuzzy_matches_count": 0,
+    "unmatched_items_count": 0,
+    "reasoning": "PO matched using invoice reference and exact product description."
+  },
+
+  "discrepancies": [
+    {
+      "id": "uuid",
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 0.88,
+      "expected_value": 45.50,
+      "actual_value": 50.05,
+      "difference": 4.55,
+      "percentage_difference": 10.0,
+      "details": "Price differs by 10%",
+      "reasoning": "Invoice price exceeds PO price beyond tolerance threshold."
+    }
+  ],
+
+  "recommendation": {
+    "action": "escalate_to_human",
+    "confidence": 0.79,
+    "risk_assessment": "high",
+    "requires_human_review": true,
+    "estimated_financial_impact": 455,
+    "reasoning": "Critical price increase detected. Requires procurement approval.",
+    "suggested_next_steps": [
+      "Verify price increase authorization",
+      "Contact supplier",
+      "Escalate to finance manager"
+    ]
+  },
+
+  "agent_reasoning_chain": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-01-29T12:30:50Z",
+      "confidence": 0.91,
+      "reasoning": "Successfully extracted invoice fields with high confidence.",
+      "execution_time": 8.2
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-01-29T12:30:58Z",
+      "confidence": 0.94,
+      "reasoning": "Exact PO match using reference and product names.",
+      "execution_time": 4.5
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-01-29T12:31:05Z",
+      "confidence": 0.88,
+      "reasoning": "Detected 10% unit price increase exceeding tolerance.",
+      "execution_time": 3.1
+    },
+    {
+      "agent": "resolution_recommendation",
+      "timestamp": "2026-01-29T12:31:18Z",
+      "confidence": 0.79,
+      "reasoning": "Escalation recommended due to critical financial discrepancy.",
+      "execution_time": 6.3
+    }
+  ],
+
+  "errors": []
+}

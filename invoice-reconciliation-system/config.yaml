@@ -1,0 +1,97 @@
+# Invoice Reconciliation System Configuration
+
+# Agent Configuration
+agents:
+  document_intelligence:
+    confidence_threshold: 0.7
+    ocr_engine: "tesseract"
+    ocr_config: "--psm 6 --oem 3"
+    preprocessing:
+      deskew: true
+      denoise: true
+      enhance_contrast: true
+      auto_rotate: true
+    extraction_retries: 2
+    
+  matching:
+    fuzzy_threshold: 0.80
+    semantic_similarity: true
+    embedding_model: "all-MiniLM-L6-v2"
+    levenshtein_threshold: 0.85
+    max_fuzzy_matches: 3
+    allow_partial_matches: true
+    
+  discrepancy_detection:
+    price_tolerance_percent: 5.0
+    quantity_tolerance: 0
+    date_tolerance_days: 7
+    severity_levels:
+      critical: 
+        - "price_mismatch_above_10_percent"
+        - "quantity_mismatch_above_20_percent"
+        - "missing_po_reference"
+      warning:
+        - "price_mismatch_5_to_10_percent"
+        - "quantity_mismatch_5_to_20_percent"
+        - "date_mismatch"
+      info:
+        - "minor_description_variation"
+        - "formatting_difference"
+    
+  resolution:
+    auto_approve_confidence: 0.95
+    request_clarification_confidence: 0.70
+    escalate_confidence: 0.50
+    auto_approve_max_amount: 10000
+    require_human_review:
+      - "critical_severity"
+      - "low_confidence_extraction"
+      - "multiple_discrepancies"
+
+# LLM Configuration - Using FREE Groq API
+llm:
+  provider: "groq"  # FREE - No cost!
+  model: "llama-3.3-70b-versatile"  # Fast and powerful, completely free
+  # Alternative free models:
+  # - "llama-3.1-70b-versatile" (very capable)
+  # - "mixtral-8x7b-32768" (32k context)
+  # - "gemma2-9b-it" (lightweight and fast)
+  temperature: 0.1
+  max_tokens: 4096
+  timeout: 60
+  retry_attempts: 3
+  
+# Processing Configuration
+processing:
+  max_concurrent_invoices: 3
+  timeout_per_invoice: 120
+  enable_parallel_processing: false
+  save_intermediate_results: true
+  
+# Output Configuration
+output:
+  format: "json"
+  save_reasoning_chain: true
+  save_confidence_scores: true
+  output_directory: "outputs"
+  create_summary_report: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "json"
+  save_to_file: true
+  log_directory: "logs"
+  
+# Data Paths
+data:
+  invoices_directory: "data/invoices"
+  purchase_orders_file: "data/purchase_orders.json"
+  reconciliation_rules_file: "data/reconciliation_rules.json"
+  
+# Performance Settings
+performance:
+  target_processing_time: 60  # seconds per invoice
+  memory_limit_mb: 4096
+  enable_caching: true
+  cache_embeddings: true

@@ -1,0 +1,157 @@
+[
+  {
+    "po_number": "PO-12345",
+    "vendor": "PharmaChem Supplies Inc",
+    "order_date": "2024-01-01",
+    "status": "approved",
+    "line_items": [
+      {
+        "item_number": "PC-001",
+        "description": "Acetylsalicylic Acid 99% Pure",
+        "quantity": 100,
+        "unit": "kg",
+        "unit_price": 45.5
+      },
+      {
+        "item_number": "PC-002",
+        "description": "Ibuprofen USP Grade",
+        "quantity": 50,
+        "unit": "kg",
+        "unit_price": 82.0
+      }
+    ]
+  },
+  {
+    "po_number": "PO-67890",
+    "vendor": "Global Pharma Ingredients",
+    "order_date": "2024-01-05",
+    "status": "approved",
+    "line_items": [
+      {
+        "item_number": "GP-101",
+        "description": "Paracetamol IP Grade",
+        "quantity": 200,
+        "unit": "kg",
+        "unit_price": 18.75
+      },
+      {
+        "item_number": "GP-102",
+        "description": "Caffeine Anhydrous",
+        "quantity": 25,
+        "unit": "kg",
+        "unit_price": 120.0
+      }
+    ]
+  },
+  {
+    "po_number": "PO-54321",
+    "vendor": "MedRaw Materials Ltd",
+    "order_date": "2024-01-10",
+    "status": "approved",
+    "line_items": [
+      {
+        "item_number": "MR-201",
+        "description": "Amoxicillin Trihydrate",
+        "quantity": 80,
+        "unit": "kg",
+        "unit_price": 150.0
+      },
+      {
+        "item_number": "MR-202",
+        "description": "Clavulanic Acid",
+        "quantity": 40,
+        "unit": "kg",
+        "unit_price": 220.0
+      }
+    ]
+  },
+  {
+    "po_number": "PO-TEST-001",
+    "vendor": "SuperStore",
+    "order_date": "November 21, 2012",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Breville Microwave, Black",
+        "quantity": 7.0,
+        "unit": "units",
+        "unit_price": 1124.26
+      }
+    ],
+    "status": "approved",
+    "confidence": 1.0,
+    "extraction_time": 1.1517047882080078
+  },
+  {
+    "po_number": "Number",
+    "vendor": "Date February 14, 2026",
+    "order_date": null,
+    "status": "approved",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "HP Laptop i5",
+        "quantity": 800.0,
+        "unit": "kg",
+        "unit_price": 2400.0
+      },
+      {
+        "item_number": null,
+        "description": "USB-C Docking Station",
+        "quantity": 120.0,
+        "unit": "kg",
+        "unit_price": 360.0
+      }
+    ],
+    "confidence": 1.0,
+    "extraction_time": 0.11866545677185059
+  },
+  {
+    "po_number": "PO-2026-001",
+    "vendor": "TechSupply Pvt Ltd",
+    "order_date": "February 13, 2026",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Dell Monitor 24-inch",
+        "quantity": 5.0,
+        "unit": "units",
+        "unit_price": 150.0
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard",
+        "quantity": 5.0,
+        "unit": "units",
+        "unit_price": 40.0
+      }
+    ],
+    "status": "approved",
+    "confidence": 1.0,
+    "extraction_time": 0.49965715408325195
+  },
+  {
+    "po_number": "PO-2026-002",
+    "vendor": "GlobalTech Supplies",
+    "order_date": "February 14, 2026",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "HP Laptop i5",
+        "quantity": 3.0,
+        "unit": "units",
+        "unit_price": 800.0
+      },
+      {
+        "item_number": null,
+        "description": "USB-C Docking Station",
+        "quantity": 3.0,
+        "unit": "units",
+        "unit_price": 120.0
+      }
+    ],
+    "status": "approved",
+    "confidence": 1.0,
+    "extraction_time": 0.4687082767486572
+  }
+]
