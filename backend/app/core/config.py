@@ -26,11 +26,13 @@ class Settings:
     LLM_MAX_TOKENS: int = 4096
 
     # CORS Configuration
-    CORS_ORIGINS: List[str] = [
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "http://localhost:8080",
-    ]
+    # CORS Configuration
+CORS_ORIGINS: List[str] = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:8080",
+    "https://multi-agent-invoice-reconciliation-system-7q6y-3kwysotlt.vercel.app",
+]
 
     # Storage Configuration
     UPLOAD_DIR: str = "uploads"

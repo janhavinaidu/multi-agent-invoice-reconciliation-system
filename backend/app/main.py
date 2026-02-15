@@ -27,11 +27,12 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS middleware
+# -------------------------
+# CORS middleware (FIXED)
+# -------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://multi-agent-invoice-reconciliation-system-7q6y-3kwysotlt.vercel.app"],
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=settings.CORS_ORIGINS,  # ✅ single source of truth
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,7 +61,7 @@ async def startup_event():
     logger.info(f"LLM Provider: {settings.LLM_PROVIDER}")
     logger.info(f"LLM Model: {settings.LLM_MODEL}")
     
-    # Initialize services (this will create singleton instances)
+    # Initialize services
     from app.services.agent_service import get_agent_service
     from app.services.processing_service import get_processing_service
     
@@ -77,9 +78,10 @@ async def shutdown_event():
     logger.info("Shutting down...")
 
 
+# For local development only
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        "app.main:app",   # ✅ fixed import path
         host=settings.API_HOST,
         port=settings.API_PORT,
         reload=settings.DEBUG
