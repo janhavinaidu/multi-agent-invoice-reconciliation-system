@@ -1,6 +1,6 @@
 """
 Utility functions for the invoice reconciliation system.
-Free-stack compatible (Ollama + OCR + FAISS).
+Deployment-safe version (NO FAISS, NO SentenceTransformers).
 """
 
 import os
@@ -14,8 +14,6 @@ import re
 
 import numpy as np
 from rapidfuzz import fuzz
-# from sentence_transformers import SentenceTransformer
-# import faiss
 
 
 # ---------------- CONFIG ---------------- #
@@ -38,9 +36,9 @@ def get_default_config() -> Dict[str, Any]:
             "resolution": {"auto_approve_confidence": 0.9}
         },
         "llm": {
-            "provider": "local",
-            "model": "llama3",
-            "temperature": 0.1
+            "provider": "disabled",
+            "model": "none",
+            "temperature": 0.0
         }
     }
 
@@ -82,35 +80,18 @@ def fuzzy_match_score(a: str, b: str) -> float:
     return fuzz.token_sort_ratio(normalize_text(a), normalize_text(b)) / 100.0
 
 
-# ---------------- SEMANTIC SEARCH ---------------- #
-
-_embedding_model = None
-
-
-def get_embedding_model():
-    global _embedding_model
-    if _embedding_model is None:
-        _embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-    return _embedding_model
-
-
-# ---------------- SEMANTIC SEARCH (DISABLED FOR DEPLOYMENT) ---------------- #
+# ---------------- SEMANTIC SEARCH (DISABLED) ---------------- #
 
 def embed_texts(texts: List[str]) -> np.ndarray:
-    return np.zeros((len(texts), 384))  # dummy embeddings
+    return np.zeros((len(texts), 1))  # dummy embeddings
 
 
 def build_faiss_index(texts: List[str]):
-    dim = 384
-    index = faiss.IndexFlatL2(dim)
-    embeddings = embed_texts(texts)
-    index.add(embeddings)
-    return index, embeddings
+    return None, None  # FAISS disabled completely
 
 
 def semantic_similarity(a: str, b: str) -> float:
-    return 0.0  # fallback
-
+    return 0.0  # fallback only
 
 
 # ---------------- NUMERIC HELPERS ---------------- #
@@ -151,7 +132,6 @@ def parse_date(date_string: str) -> Optional[datetime]:
 # ---------------- PO EXTRACTION ---------------- #
 
 def extract_po_number(text: str) -> Optional[str]:
-    # Support complex patterns like PO-2026-001 or standard PO-12345
     patterns = [
         r"((?:PO|Purchase\s+Order)[-\s]?[A-Z0-9]+(?:[-\s][A-Z0-9]+)*)"
     ]
@@ -163,6 +143,8 @@ def extract_po_number(text: str) -> Optional[str]:
             if val in ["PO", "PURCHASEORDER"]:
                 continue
             return val
+
+    return None
 
 
 # ---------------- LOGGING ---------------- #
@@ -178,7 +160,7 @@ def setup_logging(level="INFO", log_file: Optional[str] = None):
         level=getattr(logging, level.upper()),
         format="%(asctime)s - %(levelname)s - %(message)s",
         handlers=handlers,
-        force=True  # useful if logging was already configured
+        force=True
     )
 
 
@@ -230,4 +212,6 @@ class ConfidenceCalculator:
 
 
 def calculate_hash(data: Any) -> str:
-    return hashlib.md5(json.dumps(data, sort_keys=True, default=str).encode()).hexdigest()
+    return hashlib.md5(
+        json.dumps(data, sort_keys=True, default=str).encode()
+    ).hexdigest()
