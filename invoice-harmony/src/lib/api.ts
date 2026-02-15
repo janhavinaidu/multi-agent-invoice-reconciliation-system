@@ -1,6 +1,7 @@
 import { AgentStep } from "@/components/dashboard/StatusStepper";
 
-const API_Base = "http://localhost:8000/api";
+const API_Base = `${import.meta.env.VITE_API_URL}/api`;
+
 
 export interface FileUploadResponse {
     file_id: string;
