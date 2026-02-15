@@ -38,7 +38,6 @@ torch==2.10.0
 transformers==4.40.1
 fuzzywuzzy==0.18.0
 numpy==1.26.4
-scipy==1.14.1
 
 # -------------------------
 # Utilities
