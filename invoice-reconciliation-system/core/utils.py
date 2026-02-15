@@ -15,7 +15,7 @@ import re
 import numpy as np
 from rapidfuzz import fuzz
 # from sentence_transformers import SentenceTransformer
-import faiss
+# import faiss
 
 
 # ---------------- CONFIG ---------------- #
