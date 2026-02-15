@@ -14,7 +14,7 @@ import re
 
 import numpy as np
 from rapidfuzz import fuzz
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 import faiss
 
 
@@ -94,22 +94,23 @@ def get_embedding_model():
     return _embedding_model
 
 
+# ---------------- SEMANTIC SEARCH (DISABLED FOR DEPLOYMENT) ---------------- #
+
 def embed_texts(texts: List[str]) -> np.ndarray:
-    model = get_embedding_model()
-    return model.encode(texts)
+    return np.zeros((len(texts), 384))  # dummy embeddings
 
 
 def build_faiss_index(texts: List[str]):
-    embeddings = embed_texts(texts)
-    dim = embeddings.shape[1]
+    dim = 384
     index = faiss.IndexFlatL2(dim)
+    embeddings = embed_texts(texts)
     index.add(embeddings)
     return index, embeddings
 
 
 def semantic_similarity(a: str, b: str) -> float:
-    emb = embed_texts([a, b])
-    return float(np.dot(emb[0], emb[1]) / (np.linalg.norm(emb[0]) * np.linalg.norm(emb[1])))
+    return 0.0  # fallback
+
 
 
 # ---------------- NUMERIC HELPERS ---------------- #
