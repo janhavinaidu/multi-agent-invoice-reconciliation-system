@@ -1,0 +1,97 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "POREFERENCEPO-2026-001SUPPLIERTECHSUPPLYPVTLTDBILLTOABCENTERPRISESITEMQTYUNITPRICEAMOUNTDELLMONITOR24-INCH5",
+    "invoice_date": null,
+    "total_amount": 2026.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Invoice Number INV",
+        "quantity": 2026.0,
+        "unit": null,
+        "unit_price": 1.0,
+        "total_price": 2026.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "none",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Invoice Number INV",
+          "quantity": 2026.0,
+          "unit": null,
+          "unit_price": 1.0,
+          "total_price": 2026.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "pending",
+    "risk_level": "medium",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Minor issues detected.",
+    "summary": "Automatic matching was partially successful. Manual confirmation required.",
+    "suggested_steps": [
+      "Verify quantities and prices",
+      "Confirm semantic matches",
+      "Manually match if necessary"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T04:41:13.615678",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.30678439140319824
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T04:41:13.645385",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 1 unmatched",
+      "execution_time": 0.028173446655273438
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T04:41:13.647475",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0003840923309326172
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T04:41:13.648602",
+      "confidence": 0.6,
+      "reasoning": "Minor issues detected.",
+      "execution_time": 0.0002079010009765625
+    }
+  ]
+}

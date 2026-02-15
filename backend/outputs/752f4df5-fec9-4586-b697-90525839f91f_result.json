@@ -1,0 +1,100 @@
+{
+  "extraction": {
+    "invoice_number": "Bristol",
+    "supplier": "MEDCHEM INGREDIENTS",
+    "po_reference": "PO-2024",
+    "total_amount": 855.0,
+    "line_items": [],
+    "confidence": 0.8333333333333334
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [],
+    "unmatched_items_count": 0
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": "PO-2024",
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:01:18.573261",
+      "confidence": 0.8333333333333334,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.0674598217010498
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:01:18.575797",
+      "confidence": 0,
+      "reasoning": "0 matched, 0 fuzzy, 0 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:01:18.611586",
+      "confidence": 0.8333333333333334,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.03356146812438965
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:01:18.613592",
+      "confidence": 0,
+      "reasoning": "0 matched, 0 fuzzy, 0 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:01:18.621267",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:01:18.624262",
+      "confidence": 0,
+      "reasoning": "0 matched, 0 fuzzy, 0 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:01:18.628298",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0010068416595458984
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T16:01:18.630372",
+      "confidence": 0.5944444444444444,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

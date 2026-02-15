@@ -1,0 +1,254 @@
+{
+  "extraction": {
+    "invoice_number": "Unit",
+    "supplier": "PharmaChem Supplies Ltd",
+    "po_reference": "POREFERENCE",
+    "invoice_date": null,
+    "total_amount": 358022758132814.5,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "| Tel: +44",
+        "quantity": 555.0,
+        "unit": null,
+        "unit_price": 123.0,
+        "total_price": 68265.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2",
+        "quantity": 50.0,
+        "unit": null,
+        "unit_price": 125.0,
+        "total_price": 6250.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Microcrystalline Cellulose",
+        "quantity": 100.0,
+        "unit": null,
+        "unit_price": 8.5,
+        "total_price": 850.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Magnesium Stearate Ph Eur",
+        "quantity": 25.0,
+        "unit": null,
+        "unit_price": 24.0,
+        "total_price": 600.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Titanium Dioxide E171",
+        "quantity": 15.0,
+        "unit": null,
+        "unit_price": 18.5,
+        "total_price": 277.5,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "VAT (",
+        "quantity": 20.0,
+        "unit": null,
+        "unit_price": 1595.5,
+        "total_price": 31910.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "34-56 Account: 12345678 IBAN: GB29NWBK123456",
+        "quantity": 29.0,
+        "unit": null,
+        "unit_price": 12345612345678.0,
+        "total_price": 358022758024662.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.21428571428571427,
+    "matched_po_id": "PO-67890",
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "| Tel: +44",
+          "quantity": 555.0,
+          "unit": null,
+          "unit_price": 123.0,
+          "total_price": 68265.0,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Titanium Dioxide E171",
+          "quantity": 15.0,
+          "unit": null,
+          "unit_price": 18.5,
+          "total_price": 277.5,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "VAT (",
+          "quantity": 20.0,
+          "unit": null,
+          "unit_price": 1595.5,
+          "total_price": 31910.0,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "34-56 Account: 12345678 IBAN: GB29NWBK123456",
+          "quantity": 29.0,
+          "unit": null,
+          "unit_price": 12345612345678.0,
+          "total_price": 358022758024662.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 4
+  },
+  "discrepancies": [
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2' exceeds PO tolerance.",
+      "details": "Price differs by 566.7% for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2'",
+      "expected_value": 18.75,
+      "actual_value": 125.0,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'Microcrystalline Cellulose' exceeds PO tolerance.",
+      "details": "Price differs by 99.2% for 'Microcrystalline Cellulose'",
+      "expected_value": 1124.26,
+      "actual_value": 8.5,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'Magnesium Stearate Ph Eur' exceeds PO tolerance.",
+      "details": "Price differs by 28.0% for 'Magnesium Stearate Ph Eur'",
+      "expected_value": 18.75,
+      "actual_value": 24.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2' does not match PO.",
+      "details": "Quantity mismatch for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2'",
+      "expected_value": 200,
+      "actual_value": 50.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'Microcrystalline Cellulose' does not match PO.",
+      "details": "Quantity mismatch for 'Microcrystalline Cellulose'",
+      "expected_value": 7.0,
+      "actual_value": 100.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'Magnesium Stearate Ph Eur' does not match PO.",
+      "details": "Quantity mismatch for 'Magnesium Stearate Ph Eur'",
+      "expected_value": 200,
+      "actual_value": 25.0,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "4 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "total_amount_mismatch",
+      "severity": "warning",
+      "confidence": 0.7,
+      "explanation": "Possible tax/fee or calculation error.",
+      "details": "Invoice total differs from line items",
+      "expected_value": 7700.0,
+      "actual_value": 358022758132814.5,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical: price_mismatch (Price differs by 566.7% for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2'); price_mismatch (Price differs by 99.2% for 'Microcrystalline Cellulose'); price_mismatch (Price differs by 28.0% for 'Magnesium Stearate Ph Eur')",
+    "summary": "Needs immediate human review due to severe discrepancies.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T04:20:33.488408",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.683929443359375
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T04:20:33.617310",
+      "confidence": 0.21428571428571427,
+      "reasoning": "0 high-conf matches, 3 semantic matches, 4 unmatched",
+      "execution_time": 0.12430334091186523
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T04:20:33.625949",
+      "confidence": 0.4,
+      "reasoning": "Detected 8 discrepancies.",
+      "execution_time": 0.0010068416595458984
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T04:20:33.630980",
+      "confidence": 0.6985119047619047,
+      "reasoning": "Critical: price_mismatch (Price differs by 566.7% for 'Paracetamol BP 500mg 50 kg \u00a3125.00 \u00a36,2'); price_mismatch (Price differs by 99.2% for 'Microcrystalline Cellulose'); price_mismatch (Price differs by 28.0% for 'Magnesium Stearate Ph Eur')",
+      "execution_time": 0.0010004043579101562
+    }
+  ]
+}

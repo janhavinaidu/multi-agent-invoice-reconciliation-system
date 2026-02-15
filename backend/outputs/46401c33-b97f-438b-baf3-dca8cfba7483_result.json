@@ -1,0 +1,97 @@
+{
+  "extraction": {
+    "invoice_number": "Reconciliation",
+    "supplier": "Generated: 2026-02-13 11:30:32 Processing ID: report_e75f8ab4-5c1e-44fd-b83a-f427cc23f1ad",
+    "po_reference": "PO-2024",
+    "invoice_date": null,
+    "total_amount": 9821.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "02-13 11:30:32 Processing ID: report_e75f8ab4-5c1e-44fd-b",
+        "quantity": 427.0,
+        "unit": null,
+        "unit_price": 23.0,
+        "total_price": 9821.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "none",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "02-13 11:30:32 Processing ID: report_e75f8ab4-5c1e-44fd-b",
+          "quantity": 427.0,
+          "unit": null,
+          "unit_price": 23.0,
+          "total_price": 9821.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "pending",
+    "risk_level": "medium",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Multiple warnings or low confidence.",
+    "summary": "Reconciliation is pending additional verification of minor mismatches.",
+    "suggested_steps": [
+      "Verify quantities and prices",
+      "Confirm semantic matches",
+      "Manually match if necessary"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T03:10:23.707736",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.4763188362121582
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T03:10:23.756280",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 1 unmatched",
+      "execution_time": 0.04578280448913574
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T03:10:23.762908",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T03:10:23.767411",
+      "confidence": 0.6,
+      "reasoning": "Multiple warnings or low confidence.",
+      "execution_time": 0.0
+    }
+  ]
+}

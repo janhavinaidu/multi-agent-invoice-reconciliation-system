@@ -1,0 +1,205 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "POREFERENCEPO-2026-001SUPPLIERTECHSUPPLYPVTLTDBILLTOABCENTERPRISESITEMQTYUNITPRICEAMOUNTDELLMONITOR24-INCH5",
+    "invoice_date": null,
+    "total_amount": 29314.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Invoice Number INV",
+        "quantity": 2026.0,
+        "unit": null,
+        "unit_price": 1.0,
+        "total_price": 2026.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Date February",
+        "quantity": 13.0,
+        "unit": null,
+        "unit_price": 2026.0,
+        "total_price": 26338.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Dell Monitor 24-inch",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 150.0,
+        "total_price": 750.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 40.0,
+        "total_price": 200.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0.625,
+    "matched_po_id": "Number",
+    "matched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 150.0,
+          "total_price": 750.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 150.0
+        },
+        "match_score": 0,
+        "match_type": "fuzzy"
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 40.0,
+          "total_price": 200.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 40.0,
+          "unit": "kg",
+          "unit_price": 200.0
+        },
+        "match_score": 0,
+        "match_type": "exact"
+      }
+    ],
+    "matched_items_count": 2,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Invoice Number INV",
+          "quantity": 2026.0,
+          "unit": null,
+          "unit_price": 1.0,
+          "total_price": 2026.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'Wireless Keyboard' exceeds PO tolerance.",
+      "details": "Price differs by 80.0% for 'Wireless Keyboard'",
+      "expected_value": 200.0,
+      "actual_value": 40.0,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'Date February' exceeds PO tolerance.",
+      "details": "Price differs by 170.1% for 'Date February'",
+      "expected_value": 750.0,
+      "actual_value": 2026.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'Wireless Keyboard' does not match PO.",
+      "details": "Quantity mismatch for 'Wireless Keyboard'",
+      "expected_value": 40.0,
+      "actual_value": 5.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'Date February' does not match PO.",
+      "details": "Quantity mismatch for 'Date February'",
+      "expected_value": 150.0,
+      "actual_value": 13.0,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical: price_mismatch (Price differs by 80.0% for 'Wireless Keyboard'); price_mismatch (Price differs by 170.1% for 'Date February')",
+    "summary": "Needs immediate human review due to severe discrepancies.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T04:46:22.350926",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.03414011001586914
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T04:46:22.407947",
+      "confidence": 0.625,
+      "reasoning": "2 high-conf matches, 1 semantic matches, 1 unmatched",
+      "execution_time": 0.05321073532104492
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T04:46:22.411517",
+      "confidence": 0.5,
+      "reasoning": "Detected 5 discrepancies.",
+      "execution_time": 0.0017070770263671875
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T04:46:22.414143",
+      "confidence": 0.8416666666666667,
+      "reasoning": "Critical: price_mismatch (Price differs by 80.0% for 'Wireless Keyboard'); price_mismatch (Price differs by 170.1% for 'Date February')",
+      "execution_time": 0.0009236335754394531
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 14, 2026",
+    "po_reference": "POREFERENCEPO-2026-002SUPPLIERGLOBALTECHSUPPLIESBILLTOXYZSOLUTIONSLTDITEMQTYUNITPRICEAMOUNTHPLAPTOPI53",
+    "invoice_date": null,
+    "total_amount": 2760.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "HP Laptop i5",
+        "quantity": 3.0,
+        "unit": null,
+        "unit_price": 800.0,
+        "total_price": 2400.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "USB-C Docking Station",
+        "quantity": 3.0,
+        "unit": null,
+        "unit_price": 120.0,
+        "total_price": 360.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 1.0,
+    "matched_po_id": "Number",
+    "matched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "HP Laptop i5",
+          "quantity": 3.0,
+          "unit": null,
+          "unit_price": 800.0,
+          "total_price": 2400.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "HP Laptop i5",
+          "quantity": 800.0,
+          "unit": "kg",
+          "unit_price": 2400.0
+        },
+        "match_score": 0,
+        "match_type": "fuzzy"
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "USB-C Docking Station",
+          "quantity": 3.0,
+          "unit": null,
+          "unit_price": 120.0,
+          "total_price": 360.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "USB-C Docking Station",
+          "quantity": 120.0,
+          "unit": "kg",
+          "unit_price": 360.0
+        },
+        "match_score": 0,
+        "match_type": "exact"
+      }
+    ],
+    "matched_items_count": 2,
+    "unmatched_items": [],
+    "unmatched_items_count": 0
+  },
+  "discrepancies": [
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'HP Laptop i5' exceeds PO tolerance.",
+      "details": "Price differs by 66.7% for 'HP Laptop i5'",
+      "expected_value": 2400.0,
+      "actual_value": 800.0,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'USB-C Docking Station' exceeds PO tolerance.",
+      "details": "Price differs by 66.7% for 'USB-C Docking Station'",
+      "expected_value": 360.0,
+      "actual_value": 120.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'HP Laptop i5' does not match PO.",
+      "details": "Quantity mismatch for 'HP Laptop i5'",
+      "expected_value": 800.0,
+      "actual_value": 3.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'USB-C Docking Station' does not match PO.",
+      "details": "Quantity mismatch for 'USB-C Docking Station'",
+      "expected_value": 120.0,
+      "actual_value": 3.0,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "unapproved",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical: price_mismatch (Price differs by 66.7% for 'HP Laptop i5'); price_mismatch (Price differs by 66.7% for 'USB-C Docking Station')",
+    "summary": "Needs immediate human review due to severe discrepancies.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T06:07:48.101065",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.4815483093261719
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T06:07:48.113274",
+      "confidence": 1.0,
+      "reasoning": "2 high-conf matches, 0 semantic matches, 0 unmatched",
+      "execution_time": 0.008161306381225586
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T06:07:48.120368",
+      "confidence": 0.6,
+      "reasoning": "Detected 4 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T06:07:48.126366",
+      "confidence": 0.975,
+      "reasoning": "Critical: price_mismatch (Price differs by 66.7% for 'HP Laptop i5'); price_mismatch (Price differs by 66.7% for 'USB-C Docking Station')",
+      "execution_time": 0.0009930133819580078
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "PO-2026",
+    "invoice_date": null,
+    "total_amount": 950.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Dell Monitor",
+        "quantity": 150.0,
+        "unit": null,
+        "unit_price": 750.0,
+        "total_price": 112500.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard 5 $",
+        "quantity": 40.0,
+        "unit": null,
+        "unit_price": 200.0,
+        "total_price": 8000.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0.9,
+    "matched_po_id": "PO-2026-001",
+    "matched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard 5 $",
+          "quantity": 40.0,
+          "unit": null,
+          "unit_price": 200.0,
+          "total_price": 8000.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 40.0
+        },
+        "match_score": 0,
+        "match_type": "exact"
+      }
+    ],
+    "matched_items_count": 1,
+    "unmatched_items": [],
+    "unmatched_items_count": 0
+  },
+  "discrepancies": [
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price exceeds PO tolerance.",
+      "details": "Price differs by 400.0%",
+      "expected_value": 40.0,
+      "actual_value": 200.0,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price exceeds PO tolerance.",
+      "details": "Price differs by 400.0%",
+      "expected_value": 150.0,
+      "actual_value": 750.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity does not match PO.",
+      "details": "Quantity mismatch",
+      "expected_value": 5.0,
+      "actual_value": 40.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity does not match PO.",
+      "details": "Quantity mismatch",
+      "expected_value": 5.0,
+      "actual_value": 150.0,
+      "difference": null
+    },
+    {
+      "type": "total_amount_mismatch",
+      "severity": "warning",
+      "confidence": 0.7,
+      "explanation": "Possible tax/fee or calculation error.",
+      "details": "Invoice total differs from line items",
+      "expected_value": 120500.0,
+      "actual_value": 950.0,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "summary": "Needs immediate human review due to severe discrepancies and missing reference.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-14T18:55:44.389389",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.5472152233123779
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-14T18:55:44.476329",
+      "confidence": 0.9,
+      "reasoning": "1 high-conf matches, 1 semantic matches, 0 unmatched",
+      "execution_time": 0.07250666618347168
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-14T18:55:44.489705",
+      "confidence": 0.5,
+      "reasoning": "Detected 5 discrepancies.",
+      "execution_time": 0.0014238357543945312
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-14T18:55:44.502402",
+      "confidence": 0.9266666666666667,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "extraction": {
+    "invoice_number": "Riverside",
+    "supplier": "Riverside Business Park, Leeds LS14 5QT",
+    "po_reference": "POREFERENCE",
+    "invoice_date": null,
+    "total_amount": 5328.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "BIO",
+        "quantity": 75.0,
+        "unit": null,
+        "unit_price": 32.0,
+        "total_price": 2400.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "BIO-822 Citric Acid Anhydrous",
+        "quantity": 100.0,
+        "unit": null,
+        "unit_price": 12.5,
+        "total_price": 1250.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "BiO-943 Sodium Benzoate",
+        "quantity": 50.0,
+        "unit": null,
+        "unit_price": 15.8,
+        "total_price": 790.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "VAT (",
+        "quantity": 20.0,
+        "unit": null,
+        "unit_price": 888.0,
+        "total_price": 17760.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.125,
+    "matched_po_id": "PO-67890",
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "BIO",
+          "quantity": 75.0,
+          "unit": null,
+          "unit_price": 32.0,
+          "total_price": 2400.0,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "BiO-943 Sodium Benzoate",
+          "quantity": 50.0,
+          "unit": null,
+          "unit_price": 15.8,
+          "total_price": 790.0,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "VAT (",
+          "quantity": 20.0,
+          "unit": null,
+          "unit_price": 888.0,
+          "total_price": 17760.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 3
+  },
+  "discrepancies": [
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price for 'BIO-822 Citric Acid Anhydrous' exceeds PO tolerance.",
+      "details": "Price differs by 89.6% for 'BIO-822 Citric Acid Anhydrous'",
+      "expected_value": 120.0,
+      "actual_value": 12.5,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity for 'BIO-822 Citric Acid Anhydrous' does not match PO.",
+      "details": "Quantity mismatch for 'BIO-822 Citric Acid Anhydrous'",
+      "expected_value": 25,
+      "actual_value": 100.0,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "3 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "total_amount_mismatch",
+      "severity": "warning",
+      "confidence": 0.7,
+      "explanation": "Possible tax/fee or calculation error.",
+      "details": "Invoice total differs from line items",
+      "expected_value": 1250.0,
+      "actual_value": 5328.0,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "auto_approve",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical: price_mismatch (Price differs by 89.6% for 'BIO-822 Citric Acid Anhydrous')",
+    "summary": "Needs immediate human review due to severe discrepancies.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T06:10:49.700428",
+      "confidence": 1.0,
+      "reasoning": "Document processed using ocr_tesseract. Fields extracted with LLM.",
+      "execution_time": 5.1174609661102295
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T06:10:49.810665",
+      "confidence": 0.125,
+      "reasoning": "0 high-conf matches, 1 semantic matches, 3 unmatched",
+      "execution_time": 0.09820437431335449
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T06:10:49.817499",
+      "confidence": 0.6,
+      "reasoning": "Detected 4 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T06:10:49.824528",
+      "confidence": 0.6541666666666667,
+      "reasoning": "Critical: price_mismatch (Price differs by 89.6% for 'BIO-822 Citric Acid Anhydrous')",
+      "execution_time": 0.0
+    }
+  ]
+}

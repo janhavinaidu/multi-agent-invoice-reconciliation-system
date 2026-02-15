@@ -1,0 +1,164 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "POREFERENCEPO-2026-001SUPPLIERTECHSUPPLYPVTLTDBILLTOABCENTERPRISESITEMQTYUNITPRICEAMOUNTDELLMONITOR24-INCH5",
+    "invoice_date": null,
+    "total_amount": 2976.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Invoice Number INV",
+        "quantity": 2026.0,
+        "unit": null,
+        "unit_price": 1.0,
+        "total_price": 2026.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Dell Monitor 24-inch",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 150.0,
+        "total_price": 750.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 40.0,
+        "total_price": 200.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0.6666666666666666,
+    "matched_po_id": "PO-2026-001",
+    "matched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 150.0,
+          "total_price": 750.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 150.0
+        },
+        "match_score": 0,
+        "match_type": "fuzzy"
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 40.0,
+          "total_price": 200.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 40.0
+        },
+        "match_score": 0,
+        "match_type": "exact"
+      }
+    ],
+    "matched_items_count": 2,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Invoice Number INV",
+          "quantity": 2026.0,
+          "unit": null,
+          "unit_price": 1.0,
+          "total_price": 2026.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "total_amount_mismatch",
+      "severity": "warning",
+      "confidence": 0.7,
+      "explanation": "Possible tax/fee or calculation error.",
+      "details": "Invoice total differs from line items",
+      "expected_value": 950.0,
+      "actual_value": 2976.0,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "auto_approve",
+    "risk_level": "low",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Invoice fully matches PO with high confidence.",
+    "summary": "Matching successful. Ready for payment processing.",
+    "suggested_steps": [
+      "Approve invoice automatically"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T04:49:41.527038",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.05125594139099121
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T04:49:41.583447",
+      "confidence": 0.6666666666666666,
+      "reasoning": "2 high-conf matches, 0 semantic matches, 1 unmatched",
+      "execution_time": 0.053675174713134766
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T04:49:41.585119",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0002703666687011719
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T04:49:41.586390",
+      "confidence": 0.95,
+      "reasoning": "Invoice fully matches PO with high confidence.",
+      "execution_time": 0.00024890899658203125
+    }
+  ]
+}

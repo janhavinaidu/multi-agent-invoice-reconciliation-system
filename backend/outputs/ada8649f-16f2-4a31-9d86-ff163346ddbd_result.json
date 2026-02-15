@@ -1,0 +1,231 @@
+{
+  "extraction": {
+    "invoice_number": "International",
+    "supplier": "Global Pharma Supply Co.",
+    "po_reference": "PO-2024",
+    "invoice_date": "25/01/2024",
+    "total_amount": 880550889213346.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "International House, London EC2M",
+        "quantity": 2.0,
+        "unit": null,
+        "unit_price": 7.0,
+        "total_price": 14.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Uxbridge UB4",
+        "quantity": 4.0,
+        "unit": null,
+        "unit_price": 0.0,
+        "total_price": 0.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-A101 Ibuprofen BP",
+        "quantity": 8.0,
+        "unit": null,
+        "unit_price": 800.0,
+        "total_price": 6400.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-E045 Povidone K30 USP",
+        "quantity": 1.0,
+        "unit": null,
+        "unit_price": 650.0,
+        "total_price": 650.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-E067 Sodium Starch Glycolate",
+        "quantity": 19.5,
+        "unit": null,
+        "unit_price": 780.0,
+        "total_price": 15210.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Sort Code:",
+        "quantity": 50.0,
+        "unit": null,
+        "unit_price": 12349876.0,
+        "total_price": 617493800.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "IBAN:",
+        "quantity": 40025012349876.0,
+        "unit": null,
+        "unit_price": 22.0,
+        "total_price": 880550271697272.0,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "International House, London EC2M",
+          "quantity": 2.0,
+          "unit": null,
+          "unit_price": 7.0,
+          "total_price": 14.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Uxbridge UB4",
+          "quantity": 4.0,
+          "unit": null,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-A101 Ibuprofen BP",
+          "quantity": 8.0,
+          "unit": null,
+          "unit_price": 800.0,
+          "total_price": 6400.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-E045 Povidone K30 USP",
+          "quantity": 1.0,
+          "unit": null,
+          "unit_price": 650.0,
+          "total_price": 650.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-E067 Sodium Starch Glycolate",
+          "quantity": 19.5,
+          "unit": null,
+          "unit_price": 780.0,
+          "total_price": 15210.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Sort Code:",
+          "quantity": 50.0,
+          "unit": null,
+          "unit_price": 12349876.0,
+          "total_price": 617493800.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "IBAN:",
+          "quantity": 40025012349876.0,
+          "unit": null,
+          "unit_price": 22.0,
+          "total_price": 880550271697272.0,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 7
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "7 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "pending",
+    "risk_level": "medium",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Multiple warnings or low confidence.",
+    "summary": "Reconciliation is pending additional verification of minor mismatches.",
+    "suggested_steps": [
+      "Verify quantities and prices",
+      "Confirm semantic matches",
+      "Manually match if necessary"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-13T05:29:43.365889",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 1.0438146591186523
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-13T05:29:43.382634",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 7 unmatched",
+      "execution_time": 0.004267215728759766
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-13T05:29:43.976457",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.5908498764038086
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-13T05:29:43.984201",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 7 unmatched",
+      "execution_time": 0.004145622253417969
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-13T05:29:43.988894",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.001535654067993164
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-13T05:29:43.991942",
+      "confidence": 0.6,
+      "reasoning": "Multiple warnings or low confidence.",
+      "execution_time": 0.0
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "extraction": {
+    "invoice_number": "8439",
+    "supplier": "Date: Jun 16 2012",
+    "po_reference": null,
+    "total_amount": 2486.88,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Hon Round Table, Adjustable Height",
+        "quantity": 2.0,
+        "unit": null,
+        "unit_price": 486.88,
+        "total_price": 973.76,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Discount",
+        "quantity": 20.0,
+        "unit": null,
+        "unit_price": 497.38,
+        "total_price": 9947.6,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Order",
+        "quantity": 2033582.0,
+        "unit": null,
+        "unit_price": 41076.0,
+        "total_price": 83531414232.0,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Hon Round Table, Adjustable Height",
+          "quantity": 2.0,
+          "unit": null,
+          "unit_price": 486.88,
+          "total_price": 973.76,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Discount",
+          "quantity": 20.0,
+          "unit": null,
+          "unit_price": 497.38,
+          "total_price": 9947.6,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Order",
+          "quantity": 2033582.0,
+          "unit": null,
+          "unit_price": 41076.0,
+          "total_price": 83531414232.0,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 3
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "3 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:56:27.343233",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.1794147491455078
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:56:27.346765",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:56:27.493059",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.14207959175109863
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:56:27.497579",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0010082721710205078
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:56:27.501694",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:56:27.505009",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:56:27.508008",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0009984970092773438
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T16:56:27.510170",
+      "confidence": 0.625,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

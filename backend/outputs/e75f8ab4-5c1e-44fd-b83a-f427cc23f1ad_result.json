@@ -1,0 +1,211 @@
+{
+  "extraction": {
+    "invoice_number": "Unit",
+    "supplier": "PharmaChem Supplies Ltd",
+    "po_reference": "PO-2024",
+    "invoice_date": null,
+    "total_amount": 28338.75,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Unit",
+        "quantity": 20.0,
+        "unit": null,
+        "unit_price": 4.0,
+        "total_price": 80.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Uxbridge, UB4",
+        "quantity": 4.0,
+        "unit": null,
+        "unit_price": 0.0,
+        "total_price": 0.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "API-001 Paracetamol BP",
+        "quantity": 6.0,
+        "unit": null,
+        "unit_price": 250.0,
+        "total_price": 1500.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "EXC-023 Microcrystalline Cellulose",
+        "quantity": 8.5,
+        "unit": null,
+        "unit_price": 850.0,
+        "total_price": 7225.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "EXC-045 Magnesium Stearate Ph Eur",
+        "quantity": 24.0,
+        "unit": null,
+        "unit_price": 600.0,
+        "total_price": 14400.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "COL-012 Titanium Dioxide E171",
+        "quantity": 18.5,
+        "unit": null,
+        "unit_price": 277.5,
+        "total_price": 5133.75,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Unit",
+          "quantity": 20.0,
+          "unit": null,
+          "unit_price": 4.0,
+          "total_price": 80.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Uxbridge, UB4",
+          "quantity": 4.0,
+          "unit": null,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "API-001 Paracetamol BP",
+          "quantity": 6.0,
+          "unit": null,
+          "unit_price": 250.0,
+          "total_price": 1500.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "EXC-023 Microcrystalline Cellulose",
+          "quantity": 8.5,
+          "unit": null,
+          "unit_price": 850.0,
+          "total_price": 7225.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "EXC-045 Magnesium Stearate Ph Eur",
+          "quantity": 24.0,
+          "unit": null,
+          "unit_price": 600.0,
+          "total_price": 14400.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "COL-012 Titanium Dioxide E171",
+          "quantity": 18.5,
+          "unit": null,
+          "unit_price": 277.5,
+          "total_price": 5133.75,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 6
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "6 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "auto_approve",
+    "risk_level": "medium",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Multiple warnings or low confidence.",
+    "summary": "Reconciliation is pending additional verification of minor mismatches.",
+    "suggested_steps": [
+      "Verify quantities and prices",
+      "Confirm semantic matches",
+      "Manually match if necessary"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-13T05:56:06.194244",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.9564685821533203
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-13T05:56:06.200489",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 6 unmatched",
+      "execution_time": 0.0037164688110351562
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-13T05:56:06.778951",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.5773370265960693
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-13T05:56:06.786491",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 6 unmatched",
+      "execution_time": 0.001529693603515625
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-13T05:56:06.789829",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-13T05:56:06.796472",
+      "confidence": 0.6,
+      "reasoning": "Multiple warnings or low confidence.",
+      "execution_time": 0.0
+    }
+  ]
+}

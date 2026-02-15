@@ -1,0 +1,131 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "PO-2026",
+    "invoice_date": null,
+    "total_amount": 950.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Dell Monitor",
+        "quantity": 150.0,
+        "unit": null,
+        "unit_price": 750.0,
+        "total_price": 112500.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard 5 $",
+        "quantity": 40.0,
+        "unit": null,
+        "unit_price": 200.0,
+        "total_price": 8000.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Dell Monitor",
+          "quantity": 150.0,
+          "unit": null,
+          "unit_price": 750.0,
+          "total_price": 112500.0,
+          "confidence": 0.85
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard 5 $",
+          "quantity": 40.0,
+          "unit": null,
+          "unit_price": 200.0,
+          "total_price": 8000.0,
+          "confidence": 0.85
+        }
+      }
+    ],
+    "unmatched_items_count": 2
+  },
+  "discrepancies": [
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "2 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "pending",
+    "risk_level": "medium",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Multiple warnings or low confidence.",
+    "summary": "Reconciliation is pending additional verification of minor mismatches.",
+    "suggested_steps": [
+      "Verify quantities and prices",
+      "Confirm semantic matches",
+      "Manually match if necessary"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-14T18:18:16.233056",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.38808250427246094
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-14T18:18:16.236570",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 2 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-14T18:18:16.711597",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.46597743034362793
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-14T18:18:16.720136",
+      "confidence": 0.0,
+      "reasoning": "0 high-conf matches, 0 semantic matches, 2 unmatched",
+      "execution_time": 0.0009253025054931641
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-14T18:18:16.727601",
+      "confidence": 0.9,
+      "reasoning": "Detected 1 discrepancies.",
+      "execution_time": 0.0015087127685546875
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-14T18:18:16.733040",
+      "confidence": 0.6,
+      "reasoning": "Multiple warnings or low confidence.",
+      "execution_time": 0.0
+    }
+  ]
+}

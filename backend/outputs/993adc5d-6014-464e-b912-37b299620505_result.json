@@ -1,0 +1,158 @@
+{
+  "extraction": {
+    "invoice_number": "10370",
+    "supplier": "Date: May 17 2012",
+    "po_reference": null,
+    "invoice_date": null,
+    "total_amount": 6751.71,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Fellowes File Cart, Industrial 7 $",
+        "quantity": 964.53,
+        "unit": null,
+        "unit_price": 6751.71,
+        "total_price": 6512226.846299999,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Order ID : ES",
+        "quantity": 203358.0,
+        "unit": null,
+        "unit_price": 41046.0,
+        "total_price": 8347032468.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.5,
+    "matched_po_id": "PO-12345",
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [],
+    "unmatched_items_count": 0
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "warning",
+      "confidence": 0.95,
+      "explanation": "Missing PO reference on document. Semantic match found instead.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price exceeds PO tolerance.",
+      "details": "Price differs by 14738.9%",
+      "expected_value": 45.5,
+      "actual_value": 6751.71,
+      "difference": null
+    },
+    {
+      "type": "price_mismatch",
+      "severity": "critical",
+      "confidence": 1.0,
+      "explanation": "Invoice price exceeds PO tolerance.",
+      "details": "Price differs by 90111.0%",
+      "expected_value": 45.5,
+      "actual_value": 41046.0,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity does not match PO.",
+      "details": "Quantity mismatch",
+      "expected_value": 100,
+      "actual_value": 964.53,
+      "difference": null
+    },
+    {
+      "type": "quantity_mismatch",
+      "severity": "warning",
+      "confidence": 0.85,
+      "explanation": "Invoice quantity does not match PO.",
+      "details": "Quantity mismatch",
+      "expected_value": 100,
+      "actual_value": 203358.0,
+      "difference": null
+    },
+    {
+      "type": "total_amount_mismatch",
+      "severity": "warning",
+      "confidence": 0.7,
+      "explanation": "Possible tax/fee or calculation error.",
+      "details": "Invoice total differs from line items",
+      "expected_value": 8353544694.8463,
+      "actual_value": 6751.71,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "summary": "Needs immediate human review due to severe discrepancies and missing reference.",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T03:06:36.832704",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 1.1273558139801025
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T03:06:37.303557",
+      "confidence": 0.5,
+      "reasoning": "0 high-conf matches, 2 semantic matches, 0 unmatched",
+      "execution_time": 0.46485209465026855
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T03:06:37.310574",
+      "confidence": 0.4,
+      "reasoning": "Detected 6 discrepancies.",
+      "execution_time": 0.002004861831665039
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T03:06:37.337288",
+      "confidence": 0.5,
+      "reasoning": "0 high-conf matches, 2 semantic matches, 0 unmatched",
+      "execution_time": 0.023132801055908203
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T03:06:37.340881",
+      "confidence": 0.4,
+      "reasoning": "Detected 6 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T03:06:37.346891",
+      "confidence": 0.7972222222222222,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0005042552947998047
+    }
+  ]
+}

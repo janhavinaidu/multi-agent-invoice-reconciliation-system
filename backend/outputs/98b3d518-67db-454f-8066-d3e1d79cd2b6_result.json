@@ -1,0 +1,172 @@
+{
+  "extraction": {
+    "invoice_number": "500",
+    "supplier": "Date: Nov 21 2012",
+    "po_reference": null,
+    "total_amount": 7869.79,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Breville Microwave, Black",
+        "quantity": 7.0,
+        "unit": null,
+        "unit_price": 869.79,
+        "total_price": 6088.53,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Discount",
+        "quantity": 1.0,
+        "unit": null,
+        "unit_price": 573.96,
+        "total_price": 573.96,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Order",
+        "quantity": 2032036.0,
+        "unit": null,
+        "unit_price": 41234.0,
+        "total_price": 83788972424.0,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Breville Microwave, Black",
+          "quantity": 7.0,
+          "unit": null,
+          "unit_price": 869.79,
+          "total_price": 6088.53,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Discount",
+          "quantity": 1.0,
+          "unit": null,
+          "unit_price": 573.96,
+          "total_price": 573.96,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Order",
+          "quantity": 2032036.0,
+          "unit": null,
+          "unit_price": 41234.0,
+          "total_price": 83788972424.0,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 3
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "3 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:23:15.621170",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.6455135345458984
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:23:15.637443",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0010139942169189453
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:23:16.063385",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.4135267734527588
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:23:16.075731",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0009982585906982422
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:23:16.090501",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0010113716125488281
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:23:16.104084",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0005228519439697266
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:23:16.115458",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0009970664978027344
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T16:23:16.127887",
+      "confidence": 0.625,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

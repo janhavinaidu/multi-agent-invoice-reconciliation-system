@@ -1,0 +1,172 @@
+{
+  "extraction": {
+    "invoice_number": "8440",
+    "supplier": "Date: Jun 16 2012",
+    "po_reference": null,
+    "total_amount": 842.55,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Canon Fax Machine, High-Speed",
+        "quantity": 421.28,
+        "unit": null,
+        "unit_price": 842.55,
+        "total_price": 354949.464,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Discount",
+        "quantity": 0.2,
+        "unit": null,
+        "unit_price": 1.69,
+        "total_price": 0.338,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Order",
+        "quantity": 2033582.0,
+        "unit": null,
+        "unit_price": 41076.0,
+        "total_price": 83531414232.0,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Canon Fax Machine, High-Speed",
+          "quantity": 421.28,
+          "unit": null,
+          "unit_price": 842.55,
+          "total_price": 354949.464,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Discount",
+          "quantity": 0.2,
+          "unit": null,
+          "unit_price": 1.69,
+          "total_price": 0.338,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Order",
+          "quantity": 2033582.0,
+          "unit": null,
+          "unit_price": 41076.0,
+          "total_price": 83531414232.0,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 3
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "3 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:10:30.134960",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.26135802268981934
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:10:30.139214",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:10:30.290601",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.14432835578918457
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:10:30.295231",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:10:30.303269",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:10:30.310554",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 3 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:10:30.317150",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T16:10:30.324931",
+      "confidence": 0.625,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0010018348693847656
+    }
+  ]
+}

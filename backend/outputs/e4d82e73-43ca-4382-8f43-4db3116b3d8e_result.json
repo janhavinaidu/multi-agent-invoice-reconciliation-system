@@ -1,0 +1,252 @@
+{
+  "extraction": {
+    "invoice_number": "International",
+    "supplier": "Global Pharma Supply Co.",
+    "po_reference": "PO-2024",
+    "total_amount": 880550889213346.0,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "International House, London EC2M",
+        "quantity": 2.0,
+        "unit": null,
+        "unit_price": 7.0,
+        "total_price": 14.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Uxbridge UB4",
+        "quantity": 4.0,
+        "unit": null,
+        "unit_price": 0.0,
+        "total_price": 0.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-A101 Ibuprofen BP",
+        "quantity": 8.0,
+        "unit": null,
+        "unit_price": 800.0,
+        "total_price": 6400.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-E045 Povidone K30 USP",
+        "quantity": 1.0,
+        "unit": null,
+        "unit_price": 650.0,
+        "total_price": 650.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "GPS-E067 Sodium Starch Glycolate",
+        "quantity": 19.5,
+        "unit": null,
+        "unit_price": 780.0,
+        "total_price": 15210.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "Sort Code:",
+        "quantity": 50.0,
+        "unit": null,
+        "unit_price": 12349876.0,
+        "total_price": 617493800.0,
+        "confidence": 0.8
+      },
+      {
+        "item_number": null,
+        "description": "IBAN:",
+        "quantity": 40025012349876.0,
+        "unit": null,
+        "unit_price": 22.0,
+        "total_price": 880550271697272.0,
+        "confidence": 0.8
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "International House, London EC2M",
+          "quantity": 2.0,
+          "unit": null,
+          "unit_price": 7.0,
+          "total_price": 14.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Uxbridge UB4",
+          "quantity": 4.0,
+          "unit": null,
+          "unit_price": 0.0,
+          "total_price": 0.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-A101 Ibuprofen BP",
+          "quantity": 8.0,
+          "unit": null,
+          "unit_price": 800.0,
+          "total_price": 6400.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-E045 Povidone K30 USP",
+          "quantity": 1.0,
+          "unit": null,
+          "unit_price": 650.0,
+          "total_price": 650.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "GPS-E067 Sodium Starch Glycolate",
+          "quantity": 19.5,
+          "unit": null,
+          "unit_price": 780.0,
+          "total_price": 15210.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Sort Code:",
+          "quantity": 50.0,
+          "unit": null,
+          "unit_price": 12349876.0,
+          "total_price": 617493800.0,
+          "confidence": 0.8
+        }
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "IBAN:",
+          "quantity": 40025012349876.0,
+          "unit": null,
+          "unit_price": 22.0,
+          "total_price": 880550271697272.0,
+          "confidence": 0.8
+        }
+      }
+    ],
+    "unmatched_items_count": 7
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": "PO-2024",
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "7 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:11:20.685049",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.09859609603881836
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:11:20.692247",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 7 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T16:11:20.795609",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.09633207321166992
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:11:20.803908",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 7 unmatched",
+      "execution_time": 0.0005183219909667969
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:11:20.808906",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T16:11:20.815426",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 7 unmatched",
+      "execution_time": 0.0015113353729248047
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T16:11:20.820942",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0009915828704833984
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T16:11:20.825946",
+      "confidence": 0.625,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

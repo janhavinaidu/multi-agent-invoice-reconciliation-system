@@ -1,0 +1,128 @@
+{
+  "extraction": {
+    "invoice_number": "Unit",
+    "supplier": "PharmaChem Supplies Ltd",
+    "po_reference": "PO-2024",
+    "total_amount": 977.5,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "VAT: GB123456789 | Tel: +44 161",
+        "quantity": 555.0,
+        "unit": null,
+        "unit_price": 123.0,
+        "total_price": 0,
+        "confidence": null
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "description": "VAT: GB123456789 | Tel: +44 161",
+          "quantity": 555.0,
+          "unit_price": 123.0
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": "PO-2024",
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T15:38:41.589269",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.07044744491577148
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:38:41.595710",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T15:38:41.697935",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted.",
+      "execution_time": 0.09593939781188965
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:38:41.702445",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T15:38:41.709992",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0005249977111816406
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:38:41.716519",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T15:38:41.723564",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0010013580322265625
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T15:38:41.732155",
+      "confidence": 0.625,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0
+    }
+  ]
+}

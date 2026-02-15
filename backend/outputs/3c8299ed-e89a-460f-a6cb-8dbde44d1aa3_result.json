@@ -1,0 +1,128 @@
+{
+  "extraction": {
+    "invoice_number": "Riverside",
+    "supplier": "BioActive Materials UK INVOICE",
+    "po_reference": null,
+    "total_amount": 2004.009,
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "VAT: GB987654321 | Tel: +44 113",
+        "quantity": 555.0,
+        "unit": null,
+        "unit_price": 7890.0,
+        "total_price": 0,
+        "confidence": null
+      }
+    ],
+    "confidence": 0.8333333333333334
+  },
+  "matching": {
+    "match_type": "semantic",
+    "confidence_score": 0.0,
+    "matched_po_id": null,
+    "matched_items": [],
+    "matched_items_count": 0,
+    "unmatched_items": [
+      {
+        "invoice_item": {
+          "description": "VAT: GB987654321 | Tel: +44 113",
+          "quantity": 555.0,
+          "unit_price": 7890.0
+        }
+      }
+    ],
+    "unmatched_items_count": 1
+  },
+  "discrepancies": [
+    {
+      "type": "missing_po_reference",
+      "severity": "critical",
+      "confidence": 0.95,
+      "explanation": "Missing PO prevents direct authorization check.",
+      "details": "Invoice does not contain valid PO number",
+      "expected_value": "PO reference",
+      "actual_value": null,
+      "difference": null
+    },
+    {
+      "type": "unmatched_items",
+      "severity": "warning",
+      "confidence": 0.8,
+      "explanation": "Some invoice items are not present in purchase order.",
+      "details": "1 invoice items not found in PO",
+      "expected_value": null,
+      "actual_value": null,
+      "difference": null
+    }
+  ],
+  "resolution": {
+    "action": "escalate_to_human",
+    "risk_level": "high",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+    "suggested_steps": [
+      "Review critical discrepancies",
+      "Verify authorization",
+      "Contact supplier if required"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T15:40:48.819211",
+      "confidence": 0.8333333333333334,
+      "reasoning": "Document processed using ocr_tesseract. Fields extracted.",
+      "execution_time": 2.7209818363189697
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:40:48.839220",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-12T15:40:50.819720",
+      "confidence": 0.8333333333333334,
+      "reasoning": "Document processed using ocr_tesseract. Fields extracted.",
+      "execution_time": 1.9657299518585205
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:40:50.839508",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T15:40:50.851146",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-12T15:40:50.864284",
+      "confidence": 0.0,
+      "reasoning": "0 matched, 0 fuzzy, 1 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-12T15:40:50.875984",
+      "confidence": 0.8,
+      "reasoning": "Detected 2 discrepancies.",
+      "execution_time": 0.0009987354278564453
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-12T15:40:50.888740",
+      "confidence": 0.5694444444444445,
+      "reasoning": "Critical discrepancies detected (price mismatch or missing PO).",
+      "execution_time": 0.0010223388671875
+    }
+  ]
+}

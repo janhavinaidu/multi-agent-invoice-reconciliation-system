@@ -1,0 +1,122 @@
+{
+  "extraction": {
+    "invoice_number": "Invoice",
+    "supplier": "Date February 13, 2026",
+    "po_reference": "POREFERENCEPO-2026-001SUPPLIERTECHSUPPLYPVTLTDBILLTOABCENTERPRISESITEMQTYUNITPRICEAMOUNTDELLMONITOR24-INCH5",
+    "invoice_date": null,
+    "total_amount": 950.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "item_number": null,
+        "description": "Dell Monitor 24-inch",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 150.0,
+        "total_price": 750.0,
+        "confidence": 0.85
+      },
+      {
+        "item_number": null,
+        "description": "Wireless Keyboard",
+        "quantity": 5.0,
+        "unit": null,
+        "unit_price": 40.0,
+        "total_price": 200.0,
+        "confidence": 0.85
+      }
+    ],
+    "confidence": 1.0
+  },
+  "matching": {
+    "match_type": "exact",
+    "confidence_score": 1.0,
+    "matched_po_id": "PO-2026-001",
+    "matched_items": [
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 150.0,
+          "total_price": 750.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Dell Monitor 24-inch",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 150.0
+        },
+        "match_score": 0,
+        "match_type": "fuzzy"
+      },
+      {
+        "invoice_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": null,
+          "unit_price": 40.0,
+          "total_price": 200.0,
+          "confidence": 0.85
+        },
+        "po_item": {
+          "item_number": null,
+          "description": "Wireless Keyboard",
+          "quantity": 5.0,
+          "unit": "units",
+          "unit_price": 40.0
+        },
+        "match_score": 0,
+        "match_type": "exact"
+      }
+    ],
+    "matched_items_count": 2,
+    "unmatched_items": [],
+    "unmatched_items_count": 0
+  },
+  "discrepancies": [],
+  "resolution": {
+    "action": "auto_approve",
+    "risk_level": "low",
+    "financial_impact": 0.0,
+    "ai_reasoning": "Invoice fully matches PO with high confidence.",
+    "summary": "Matching successful. Ready for payment processing.",
+    "suggested_steps": [
+      "Approve invoice automatically"
+    ]
+  },
+  "agent_timeline": [
+    {
+      "agent": "document_intelligence",
+      "timestamp": "2026-02-15T06:03:11.708369",
+      "confidence": 1.0,
+      "reasoning": "Document processed using native_pdf_extraction. Fields extracted with LLM.",
+      "execution_time": 0.40617871284484863
+    },
+    {
+      "agent": "matching",
+      "timestamp": "2026-02-15T06:03:11.714626",
+      "confidence": 1.0,
+      "reasoning": "2 high-conf matches, 0 semantic matches, 0 unmatched",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "discrepancy_detection",
+      "timestamp": "2026-02-15T06:03:11.721089",
+      "confidence": 0.95,
+      "reasoning": "No discrepancies found.",
+      "execution_time": 0.0
+    },
+    {
+      "agent": "resolution",
+      "timestamp": "2026-02-15T06:03:11.727277",
+      "confidence": 1.0,
+      "reasoning": "Invoice fully matches PO with high confidence.",
+      "execution_time": 0.0
+    }
+  ]
+}
