@@ -1,22 +1,22 @@
-fastapi==0.110.0
+fastapi==0.109.2
 uvicorn==0.27.1
+
 pydantic==2.5.3
 pydantic-settings==2.1.0
 python-multipart==0.0.9
 python-dotenv==1.0.1
 
-langgraph==0.2.28
-langchain==0.3.1
-langchain-groq==0.2.1
-langchain-community==0.3.0
-groq==0.11.0
+langchain==0.2.14
+langchain-community==0.2.12
+langchain-groq==0.1.9
+langgraph==0.0.40
+groq==0.9.0
 
-pymupdf
 pdfplumber==0.11.4
+pymupdf==1.24.9
 pytesseract==0.3.13
 opencv-python-headless==4.10.0.84
 pillow==10.4.0
-pypdf
 
 fuzzywuzzy==0.18.0
 numpy==1.26.4
@@ -25,8 +25,6 @@ pyyaml==6.0.2
 tqdm==4.66.5
 rich==13.9.4
 python-dateutil==2.9.0.post0
-colorama==0.4.6
-structlog==24.4.0
 
 sqlalchemy==2.0.27
 psycopg2-binary==2.9.9
