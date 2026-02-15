@@ -38,7 +38,7 @@ class AgentService:
         logger.info(f"AgentService initialized with {len(self.po_database)} purchase orders from {po_path}")
     
     def _initialize_llm(self):
-        """Initialize LLM based on configuration"""
+        """ Initialize LLM based on configuration
         from app.core.config import settings
         
         try:
@@ -64,7 +64,9 @@ class AgentService:
                 raise ValueError(f"Unsupported LLM provider: {settings.LLM_PROVIDER}")
         except Exception as e:
             logger.error(f"Failed to initialize LLM: {e}")
-            raise
+            raise"""
+        logger.warning("LLM disabled - running in fallback mode")
+        return None
     
     def _initialize_agents(self) -> Dict[str, Any]:
         """Initialize all agents"""
